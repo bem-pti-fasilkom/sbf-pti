@@ -1,0 +1,46 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-background-color-light: #fefefe;
+  --footer-bg-light: #142a5e;
+
+  --ifm-color-primary: #254aa5;
+  --ifm-color-primary-dark: #1f4090;
+  --ifm-color-primary-darker: #1a367a;
+  --ifm-color-primary-darkest: #142a5e;
+  --ifm-color-primary-light: #3059b8;
+  --ifm-color-primary-lighter: #426bcd;
+  --ifm-color-primary-lightest: #5c83d9;
+
+  --docusaurus-highlighted-code-line-bg: rgba(180, 200, 255, 0.6);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --footer-bg-dark: #2f4fa8;
+
+  --ifm-color-primary: #a8c5f0;
+  --ifm-color-primary-dark: #5a82e0;
+  --ifm-color-primary-darker: #466ad1;
+  --ifm-color-primary-darkest: #2f4fa8;
+  --ifm-color-primary-light: #bad2f5;
+  --ifm-color-primary-lighter: #c7dbf7;
+  --ifm-color-primary-lightest: #dbe8fb;
+
+  --docusaurus-highlighted-code-line-bg: rgba(35, 50, 90, 0.6);
+}
+
+.footer {
+  background-color: var(--footer-bg-light);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .footer {
+  background-color: var(--footer-bg-dark);
+  color: #ffffff;
+}
