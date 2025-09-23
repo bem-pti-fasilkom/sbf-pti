@@ -81,3 +81,69 @@ useEffect(() => {
 ## Fetching
 
 Fetching adalah proses mengambil data dari sumber eksternal, seperti API atau database, dan menggunakannya dalam aplikasi kita. Dalam konteks React, fetching biasanya dilakukan dalam efek samping menggunakan hook seperti `useEffect` dan `useState`.
+
+- **Server-side**  
+  Contoh fetching data dari API menggunakan `fetch`:
+
+```javascript
+async function getData() {
+  const data = await fetch("URL", {
+		headers: {
+			Content-Type: “application/JSON”,
+			Authentication: “$$$”
+}
+});
+  const menu = await data.json();
+  return menu
+}
+```
+
+- **Client-side**  
+  Contoh fetching data dari API menggunakan `axios`:
+
+```javascript
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("URL", {
+        headers: {
+          Content-Type: "application/JSON",
+          Authentication: "$$$",
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  return (
+    <div>
+      {data.map((item) => (
+        <div key={item.id}>{item.name}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+Contoh penggunaan `use` dalam komponen:
+
+```javascript
+import { use } from "react";
+
+export default function ProductList({ items }: { items: Promise<ProductProps[]>}){
+const allItems = use(items);
+{
+allItems.map((item) => (
+		…
+))
+}
+
+}
+
+```
