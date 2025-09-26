@@ -39,7 +39,24 @@ sidebar_position: 4
 npm install react-router-dom
 ```
 
-2.
+2. Buat file `App.js` atau `App.tsx`
+
+```javascript
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+
+import Login from "./pages/Login";
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+}
+```
 
 ## Hooks
 
