@@ -25,7 +25,7 @@ Contoh kerangka dasar dokumen HTML:
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Judul Halaman</title>
+  <title>Hello World</title>
 </head>
 <body>
   <h1>Hello World</h1>
@@ -110,7 +110,7 @@ Menampilkan daftar dengan penomoran.
 
 ```html
 <img src="foto.jpg" alt="Foto Profil" width="200">
-<img src="https://via.placeholder.com/150" alt="Contoh Gambar">
+<img src="https://picsum.photos/600/400" alt="Contoh Gambar">
 ```
 
 * `src` : sumber gambar (lokal atau URL).
@@ -144,6 +144,31 @@ Menampilkan daftar dengan penomoran.
 ## Pengenalan CSS
 
 Cascading Style Sheets (CSS) adalah bahasa untuk mengatur tampilan dan gaya dari elemen HTML. CSS memungkinkan kamu mengatur warna, ukuran, posisi, serta tata letak elemen pada halaman.
+
+### Cara Menyambungkan HTML dengan CSS
+1. Buat file baru, namanya misalnya `style.css` (bisa juga nama lain, asal ekstensinya `.css`).
+2. Simpan file itu di folder yang sama dengan `index.html`.
+3. Di dalam `index.html`, tambahin baris berikut di bagian `<head>`:
+
+```html
+<head>
+  ...
+  <link rel="stylesheet" href="style.css">
+</head>
+```
+
+4. isi `style.css` dengan aturan css kamu, misalnya:
+
+```css
+body {
+  background-color: #FEFEFE;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: black;
+  text-align: center;
+}
+```
 
 ### _Selector_ pada CSS
 
@@ -204,36 +229,37 @@ Pada tutorial ini, kita akan mengenak tiga jenis _selector_: **_Element Selector
     Contoh penggunaan _Class Selector_ pada **_template_ HTML**:
     
     ```html
-    ...
     <div id="main">
-        <div class="parent_content">
-            <p class="date">Tanggal 9 September 2024</p>
-            <h2><a href="">Subjek: Keseruan PBP</a></h2>
-            <p id="content_1">Materi PBP sangat seru!</p>
-        </div>
-        <div class="parent_content">
-            <p class="date">Tanggal 10 September 2024</p>
-            <h2><a href="">Subjek: Review PBP</a></h2>
-            <p id="content_2">Biar lebih gacor aku review materi PBP</p>
-        </div>
-        <div class="parent_content">
-            <p class="date">Tanggal 11 September 2024</p>
-            <h2><a href="">Subjek: Ikut Tutorial PBP</a></h2>
-            <p id="content_3">Tutorial PBP sangat seru!</p>
-        </div>
+      <div class="parent_content">
+        <p class="date">Tanggal 27 September 2025</p>
+        <h2>Subjek: Keseruan SBF</h2>
+        <p id="content_1">Materi SBF sangat seru!</p>
+      </div>
+
+      <div class="parent_content">
+        <p class="date">Tanggal 29 September 2025</p>
+        <h2>Subjek: Review SBF</h2>
+        <p id="content_2">Biar lebih gacor aku review materi SBF</p>
+      </div>
+
+      <div class="parent_content">
+        <p class="date">Tanggal 29 September 2025</p>
+        <h2>Subjek: Ikut Tutorial SBF</h2>
+        <p id="content_3">Tutorial SBF sangat seru!</p>
+      </div>
     </div>
-    ...
     ```
     
     Kemudian, kita dapat menggunakan _Class_ tersebut sebagai _selector_ dalam **_file_ CSS**. _Class selector_ menggunakan format *.[class_name]* (diawali .)
     
     ```html
-    .content_section {
-      background-color: #112a33;
-      margin-bottom: 30px;
+    .parent_content {
+      background-color: #E0E0E0;
+      margin-bottom: 10px;
       color: #0F0F0F;
       font-family: cursive;
       padding: 20px 20px 20px 40px;
+      border-radius: 10px;
     }
     ```
     
@@ -331,8 +357,6 @@ p {
 }
 ```
 
----
-
 ### Layout dengan CSS
 
 #### Display
@@ -381,6 +405,7 @@ Jenis posisi: `static`, `relative`, `absolute`, `fixed`, `sticky`.
 Digunakan untuk menyesuaikan tampilan di layar kecil.
 
 ### Responsive Web Design
+
 *Responsive web design* merupakan metode sistem desain web yang memiliki tujuan untuk menghasilkan tampilan web yang terlihat baik pada seluruh perangkat seperti *desktop*, *tablet*, *mobile*, dan sebagainya. *Responsive web design* tidak mengubah isi dari situs web, tetapi hanya mengubah tampilan dan penataan pada setiap perangkat agar sesuai dengan lebar layar dan kemampuan perangkat tersebut. Dalam *responsive web design* tampilan-tampilan tertentu membutuhkan bantuan CSS (seperti mengecilkan atau membesarkan) suatu elemen. 
 
 Salah satu cara untuk menguji apakah suatu situs web menggunakan *responsive web design* adalah dengan mengakses situs web tersebut dan mengaktifkan fitur `Toggle Device Mode` pada *browser*. Fitur ini memungkinkan kamu untuk melihat bagaimana situs web tersebut ditampilkan pada berbagai perangkat, seperti komputer, tablet, atau *smartphone*, tanpa harus mengubah ukuran jendela *browser*. 
@@ -396,38 +421,38 @@ Untuk mempelajari lebih lengkap mengenai *Reponsive Web Design*, kamu dapat memb
 #### Teknik Dasar Membuat Website Responsif
 
 1. **Menggunakan Persentase (%) atau Unit Fleksibel (em, rem, vw, vh)**
-   Alih-alih menetapkan ukuran dalam piksel tetap, gunakan ukuran relatif agar elemen menyesuaikan ukuran layar.
+  Alih-alih menetapkan ukuran dalam piksel tetap, gunakan ukuran relatif agar elemen menyesuaikan ukuran layar.
 
-   ```css
-   img {
-     width: 80%;   /* bukan 800px */
-     height: auto;
-   }
-   ```
+  ```css
+  img {
+    width: 80%;   /* bukan 800px */
+    height: auto;
+  }
+  ```
 
 2. **Menggunakan Flexbox**
-   Dengan `display: flex;`, elemen dapat otomatis menyesuaikan tata letak.
+  Dengan `display: flex;`, elemen dapat otomatis menyesuaikan tata letak.
 
-   ```css
-   .container {
-     display: flex;
-     flex-wrap: wrap; /* elemen akan turun jika layar sempit */
-   }
-   ```
+  ```css
+  .container {
+    display: flex;
+    flex-wrap: wrap; /* elemen akan turun jika layar sempit */
+  }
+  ```
 
 3. **Menggunakan Media Queries**
-   Digunakan untuk memberikan aturan CSS berbeda sesuai ukuran layar.
+  Digunakan untuk memberikan aturan CSS berbeda sesuai ukuran layar.
 
-   ```css
-   @media (max-width: 768px) {
-     body {
-       background-color: lightgray;
-     }
-     .container {
-       flex-direction: column;
-     }
-   }
-   ```
+  ```css
+  @media (max-width: 768px) {
+    body {
+      background-color: lightgray;
+    }
+    .container {
+      flex-direction: column;
+    }
+  }
+  ```
 
 #### Prinsip Penting Responsif
 
@@ -435,7 +460,109 @@ Untuk mempelajari lebih lengkap mengenai *Reponsive Web Design*, kamu dapat memb
 * Gunakan **gambar yang skalanya menyesuaikan** (`max-width: 100%; height: auto;`).
 * Gunakan **media query** untuk menyesuaikan tampilan di layar kecil.
 
----
+### Contoh Kode yang Responsif
+```html
+/* HTML */
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Website Responsif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Halo, ini Web Responsif</h1>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Tentang</a>
+      <a href="#">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="box">Konten 1</div>
+    <div class="box">Konten 2</div>
+    <div class="box">Konten 3</div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 My Project</p>
+  </footer>
+</body>
+</html>
+```
+
+```css
+/* CSS */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: sticky; /* selalu nempel di atas saat scroll */
+  top: 0;
+}
+
+.nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  flex: 1; /* isi ruang kosong di antara header dan footer */
+}
+
+.box {
+  background-color: salmon;
+  color: white;
+  width: 30%;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* kotak jadi ke bawah */
+    align-items: center;
+  }
+  .box {
+    width: 80%; /* biar memenuhi layar kecil */
+    margin-bottom: 10px;
+  }
+}
+
+```
 
 ## Hands-On Project: Portfolio Sederhana
 
@@ -450,16 +577,13 @@ Untuk mempelajari lebih lengkap mengenai *Reponsive Web Design*, kamu dapat memb
 </head>
 <body>
   <h1>Halo, Saya Fulan</h1>
-  <p>Mahasiswa Ilmu Komputer yang sedang mempelajari web development.</p>
-
-  <h2>Foto</h2>
-  <img src="https://via.placeholder.com/200" alt="Foto Saya">
+  <p>Mahasiswa Ilmu Komputer yang sedang mengikuti SBF PTI 2025.</p>
 
   <h2>Data Diri</h2>
   <table>
     <tr><th>Nama</th><td>Fulan</td></tr>
     <tr><th>Umur</th><td>20</td></tr>
-    <tr><th>Kampus</th><td>UI</td></tr>
+    <tr><th>Jurusan</th><td>Ilmu Komputer / Sistem Informasi</td></tr>
   </table>
 
   <h2>Hobi</h2>
@@ -469,6 +593,7 @@ Untuk mempelajari lebih lengkap mengenai *Reponsive Web Design*, kamu dapat memb
     <li>Desain</li>
   </ul>
 
+  <h2>Mata Kuliah yang Diambil</h2>
   <div class="container">
     <div class="kotak">Box 1</div>
     <div class="kotak">Box 2</div>
@@ -478,67 +603,7 @@ Untuk mempelajari lebih lengkap mengenai *Reponsive Web Design*, kamu dapat memb
 </html>
 ```
 
-### File `style.css`
+Coba tambahkan navbar dan footer pada web portofolio ini, lalu desainlah dengan kreasi kalian sendiri!
 
-```css
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f9f9f9;
-}
-
-h1 {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-h2 {
-  margin-top: 30px;
-  color: navy;
-}
-
-p {
-  text-align: justify;
-  font-size: 18px;
-  font-style: italic;
-}
-
-table {
-  width: 50%;
-  margin: auto;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid black;
-}
-
-.container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.kotak {
-  width: 100px;
-  height: 100px;
-  background-color: salmon;
-  color: white;
-  text-align: center;
-  line-height: 100px;
-  border-radius: 10px;
-}
-
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .kotak {
-    margin-bottom: 10px;
-  }
-}
-```
+---
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
