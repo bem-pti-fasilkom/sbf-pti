@@ -184,3 +184,5 @@ INSTALLED_APPS = [
     'main'
 ]
 ```
+
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨

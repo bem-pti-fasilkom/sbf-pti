@@ -106,7 +106,7 @@ Biasanya, FigJam digunakan untuk:
 * User Flow → menyusun urutan langkah atau kejadian yang dapat dilakukan pengguna dengan produk kita
 * Wireframe → membuat gambaran kasar mengenai tampilan atau struktur produk
 
-# Prinsip UI
+## Prinsip UI
 Prinsip dasar User Interface (UI) yang harus selalu diingat ada 3, yaitu Consistency, Hierarchy, dan Spacing.
 
 1. **Consistency (konsistensi)**
@@ -129,7 +129,7 @@ Prinsip dasar User Interface (UI) yang harus selalu diingat ada 3, yaitu Consist
 
    Spacing adalah pengaturan ruang antar elemen desain seperti teks, gambar, dan tombol. Spacing yang tepat menciptakan tata letak yang seimbang, estetis, dan mudah dibaca oleh pengguna. Dengan memberikan jarak yang cukup, pengguna dapat membaca dan memproses informasi tanpa kebingungan visual. Selain itu, spacing membuat antarmuka terlihat lebih rapi dan profesional, sekaligus memudahkan navigasi serta interaksi. Misalnya, jarak antar tombol yang cukup akan membantu pengguna lebih mudah menemukan dan menekan tombol tanpa kesalahan.
 
-# Design System
+## Design System
 
 Sebelum membuat desain, seorang desainer perlu membuat design system terlebih dahulu. Design system adalah kumpulan komponen yang digunakan secara konsisten dalam suatu desain untuk menjaga kualitas dan keteraturan. Komponen yang biasanya ada dalam design system antara lain warna, tipografi, spacing, tombol, dan elemen lain yang sering digunakan berulang. Pada kesempatan kali ini, kalian akan mempelajari 2 hal dasar dalam design system terlebih dahulu, yaitu warna dan typography.
 
