@@ -13,17 +13,21 @@ Django adalah framework berbasis Python untuk membangun aplikasi web dengan cepa
 Pastikan versionnya 3.x, kalau versionnya ga sesuai (kurang dari 3.x) download dari link:
 https://www.python.org/downloads/
 
+![python version](static/img/python_version.png)
+
 **Langkah 2: Instalasi Django**<br/>
 `pip install django`
 
-Cek versi<br/>
+Cek versi untuk mengecek status instalasi<br/>
 `django-admin --version`
+
+![django version](static/img/django_version.png)
 
 **Langkah 3: Membuat Direktori dan Menyiapkan Virtual Environment**
 
 Note: Direktori tuh sama aja dengan folder yaa<br/>
 
-Virtual environment (venv) adalah environment python terisolasi. Dibuat folder khusus berisi python dan library untuk satu projek. Jadi untuk tiap projek kalian dependenciesnya ga saling ganggu.
+Virtual environment (venv) adalah environment python terisolasi. Dibuat direktori khusus berisi python dan library untuk satu projek. Jadi untuk tiap projek kalian dependenciesnya ga saling ganggu.
 
 **Kenapa Perlu Virtual Env?**<br/>
 Dengan virtual environment<br/>
@@ -38,13 +42,18 @@ Tanpa virtual environment<br/>
 ⚠️ Susah tracking dependency spesifik project.<br/>
 ⚠️ Kalau upgrade/downgrade 1 package, bisa buat project lain gabisa di run lokal.<br/>
 
-1. Buat folder baru
-2. Dalam direktori tersebut buka command prompt atau terminal. Atau dapat juga dibuka dengan VScode.
+**Membuat Direktori Baru dan Venv**
+1. Buat direktori baru
+
+2. Dalam direktori tersebut buka command prompt atau terminal. Atau dapat juga dibuka dengan terminal VScode.
 
 3. Jalankan command berikut.
 
 Membuat env<br/>
 `python -m venv env`
+![env directory](static/img/env_directory.png)
+
+Perhatikan bahwa terbuat direktori baru env didalam direktori yang kalian buka saat ini. direktori_now/env<br/>
 
 Mengaktifkan env<br/>
 - windows<br/>
@@ -53,15 +62,18 @@ Mengaktifkan env<br/>
 `source env/bin/activate`<br/>
 
 Apabila env sudah menyala, akan terlihat dengan tulisan (env) di line terminal
+![env activated](static/img/activated_env.png)
 
 Mematikan env<br/>
 `deactivate`
 
+![env deactivated](static/img/deactivated_env.png)
+
 **Langkah 4: Menyiapkan Dependencies dan Membuat Projek Django**
 
-Dependencies adalah komponen atau modul yang diperlukan oleh suatu perangkat lunak untuk berfungsi, termasuk library, framework, atau package. Hal tersebut memungkinkan pengembang memanfaatkan kode yang telah ada, mempercepat pengembangan, tetapi juga memerlukan manajemen yang hati-hati untuk memastikan kompatibilitas versi yang tepat. Penggunaan virtual environment membantu mengisolasi dependencies antara proyek-proyek yang berbeda.
+Dependencies adalah komponen atau modul yang diperlukan oleh suatu perangkat lunak untuk berfungsi, termasuk library, framework, atau package. Hal tersebut memungkinkan pengembang memanfaatkan kode yang telah ada, mempercepat pengembangan  Penggunaan virtual environment membantu mengisolasi dependencies antara proyek-proyek yang berbeda.
 
-1. Pada direktori yang sama, buat file `requiirements.txt` dan tambahkan dependency berikut<br/>
+1. Pada direktori yang sama dengan tempat anda membuat env, buat file `requiirements.txt` dan tambahkan dependency berikut<br/>
 ```
 django
 gunicorn
@@ -73,11 +85,23 @@ urllib3
 
 2. Lakukan instalasi dependencies yang ada dengan perintah berikut. (Jalankan venv sebelum menjalankan perintah ini)
 
+Mengaktifkan env<br/>
+- windows<br/>
+`env\Scripts\activate`<br/>
+- linux<br/>
+`source env/bin/activate`<br/>
+
+Lalu jalankan<br/>
+
 `pip install -r requirements.txt`
 
 3. Buat proyek Django dengan nama bebas, buat dengan perintah berikut.<br/>
 `django-admin startproject nama_proyek .`<br/>
 Note: Pastikan karakter `.` tertulis diakhir command<br/>
+
+Bentuk direktori anda seharusnya seperti ini.<br/>
+
+![make project](static/img/make_project.png)
 
 **Langkah 5: Konfigurasi dan Menjalankan Server**
 1. Tambahkan string berikut pada ALLOWED_HOSTS di settings.py untuk keperluan deployment<br/>
@@ -86,9 +110,10 @@ Note: Pastikan karakter `.` tertulis diakhir command<br/>
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 ...
 ```
-Dalam konteks deployment, ALLOWED_HOSTS berfungsi sebagai daftar host yang diizinkan untuk mengakses aplikasi web. Disini kita meng set `localhost` dan ip `127.0.0.1` pada ALLOWED_HOSTS, artinya kita memberi izin ke peramban lokal kita untuk dapat meng run aplikasi secara lokal.<br/>
 
-Note: Variabel inilah yang kita edit agar aplikasi kita dapat dibuka pada saat deployment.
+Dalam konteks deployment, ALLOWED_HOSTS berfungsi sebagai daftar host yang diizinkan untuk mengakses aplikasi web. Disini kita meng set `localhost` dan ip `127.0.0.1` pada ALLOWED_HOSTS, artinya kita memberi izin ke device lokal kita untuk dapat meng run aplikasi secara lokal.<br/>
+
+Note: Variabel ALLOWED_HOSTS adalah variabel yang kita edit agar aplikasi kita dapat dibuka pada saat deployment (misal di hostinger, aws, dll).
 
 2. Menjalankan Server<br/>
 Pastikan bahwa berkas manage.py ada pada direktori yang aktif pada terminal kamu saat ini. Untuk menjalankan server Django, jalankan perintah berikut:
@@ -99,11 +124,13 @@ Pastikan bahwa berkas manage.py ada pada direktori yang aktif pada terminal kamu
 
 3. Buka server django pada browser favorit anda dengan memasukkan link http://localhost:8000. Apabila proyek Django di setup dengan benar, anda akan melihat animasi roket :D.
 
+![django rocket](static/img/django_rocket.png)
+
 **Langkah 4: Mematikan Server**
 1. Matikan server dengan menekan `ctrl + c` pada terminal anda
 2. Matikan venv dengan menginput `deactivate`.
 
-## Django MVT
+## Django MVT (Model View Template)
 
 ![MVT Diagram](static/img/MVT.png)
 
@@ -138,7 +165,7 @@ Karena struktur kode terorganisasi, developer dapat memperbaiki atau mengubah sa
 Karena Django sudah menyediakan kerangka kerja bawaan, developer tidak perlu membuat sistem dari nol.
 
 ## Struktur App Django
-Pada app yang kalian buat `nama_proyek`, perhatikan struktur foldernya, harusnya struktur folder seperti berikut
+Pada app yang kalian buat `nama_proyek`, perhatikan struktur direktorinya, harusnya struktur direktori seperti berikut
 ```
 nama_proyek/
 ├── manage.py
@@ -150,10 +177,10 @@ nama_proyek/
 │   └── wsgi.py
 ```
 
-**Penjelasan tiap file/folder:**<br/>
-- **nama_proyek/:** folder utama project Django.<br/>
+**Penjelasan tiap file/direktori:**<br/>
+- **nama_proyek/:** direktori utama project Django.<br/>
 - **manage.py:** skrip utama untuk menjalankan perintah Django (runserver, migrate, dll.).<br/>
-- **init.py:** menandakan folder ini adalah Python package.<br/>
+- **init.py:** menandakan direktori ini adalah Python package.<br/>
 - **asgi.py:** entry point untuk server berbasis ASGI (async).<br/>
 - **settings.py:** konfigurasi utama project (database, installed apps, dll.).<br/>
 - **urls.py:** routing URL tingkat project (mengarah ke tiap app).<br/>
@@ -161,14 +188,13 @@ nama_proyek/
 
 ### Membuat App Pada Proyek Django
 **Langkah 1: Persiapan**<br/>
-1. Pastikan kamu berada di direktori main projek Django `nama_proyek`<br/>
+1. Pastikan kamu berada di direktori main projek Django misalnya `nama_proyek` maka pindah ke direktori tersebut.<br/>
 2. Buka terminal pada direktori tersebut bisa menggunakan command prompt, VSCode, atau CLI favorit kamu.<br/>
 3. Aktifkan virtual environment yang telah dibuat sebelumnya.<br/>
 - windows<br/>
 `env\Scripts\activate`<br/>
 - linux<br/>
 `source env/bin/activate`<br/>
-
 
 **Langkah 2: Buat Aplikasi Pada Projek Django**<br/>
 1. Jalankan perintah berikut untuk membuat aplikasi baru dengan nama main.<br/>
@@ -185,4 +211,35 @@ INSTALLED_APPS = [
 ]
 ```
 
-Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
+Seharusnya struktur direktorinya menjadi seperti berikut.
+
+```
+nama_proyek/
+├── manage.py
+├── nama_proyek
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── main
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+```
+
+Untuk file urls.py tidak ter generate dari inisialisasi app django, tapi perlu kita buat sendiri.
+
+- **migrations/:** berisi file migrasi yang dihasilkan Django setiap kali ada perubahan pada model (models.py). Migrasi ini digunakan untuk sinkronisasi antara kode Python (model) dengan struktur database sebenarnya. File di dalam direktori ini akan terbentuk otomatis ketika menjalankan perintah `python manage.py makemigrations` dan diterapkan ke database dengan `python manage.py migrate`.<br/>  
+- **models.py:** berisi definisi *Model*, yaitu representasi tabel pada database. Di sini kamu bisa mendeskripsikan struktur data, relasi antar data, dan logika. Django  otomatis mengubah model ini menjadi tabel melalui migration.<br/>  
+- **views.py:** berisi *View*, yaitu logika yang mengatur bagaimana permintaan (request) dari pengguna diproses dan apa yang dikembalikan (response). Biasanya view akan mengambil data dari model, lalu meneruskannya ke template untuk ditampilkan. (intinya views berisi function untuk proses data pada models)<br/>
+- **tests.py:** berisi unit test yang memastikan fungsi pada view berjalan semestinya.
+
+
+
+Sekian materi-1! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk ngerjain checkpoint ges.
