@@ -226,7 +226,7 @@ Bayangkan bahwa `mahasiswa`, `buku`, `perpustakaan`, dan `universitas` merupakan
 Relasi membantu kita **menghubungkan model-model** ini dengan cara yang efisien.
 
 ### Relasi Dalam Django
-Django menyediakan tiga jenis relasi utama yang langsung bisa digunakan lewat field bawaan:
+Django menyediakan tiga (secara umum, tidak hanya di django, memang hanya ada 3) jenis relasi utama yang langsung bisa digunakan lewat field bawaan:
 
 1. **One-to-One (`OneToOneField`)**  
    Setiap record di model A hanya bisa berhubungan dengan satu record di model B.  
