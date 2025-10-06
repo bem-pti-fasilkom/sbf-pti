@@ -5,13 +5,9 @@ sidebar_position: 2
 
 # Javascript Functions & ES6 Basics for React
 
-
 ---
 
-
-
-
-# Checkpoint: Interaktivitas JavaScript
+# Checkpoint: JavaScript for Web Dev
 
 Jadikan halaman landing page statis Anda lebih dinamis dengan menambahkan beberapa fungsionalitas interaktif menggunakan JavaScript.
 
@@ -19,14 +15,14 @@ Kerjakan tugas-tugas berikut pada proyek yang sudah ada:
 
 ---
 
-### 1. Tombol Dark / Light Mode 
+### 1. Tombol Dark / Light Mode
 
-Buat sebuah tombol atau *toggle switch* yang bisa mengubah tema warna halaman Anda.
+Buat sebuah tombol atau _toggle switch_ yang bisa mengubah tema warna halaman Anda.
 
 - **Ketentuan:**
   - Saat tombol diklik, tema warna halaman berubah dari terang ke gelap (atau sebaliknya).
   - Perubahan harus terjadi secara langsung **tanpa me-reload halaman**.
-  - **Petunjuk:** Manfaatkan JavaScript untuk menambah/menghapus *class* (misalnya `.dark-mode`) pada elemen `<body>`, lalu atur warnanya di CSS.
+  - **Petunjuk:** Manfaatkan JavaScript untuk menambah/menghapus _class_ (misalnya `.dark-mode`) pada elemen `<body>`, lalu atur warnanya di CSS.
 
 ---
 
@@ -38,8 +34,7 @@ Buat menu navigasi Anda menjadi responsif di perangkat mobile.
   - Buat navbar menjadi ikon seperti "hamburger" (referensi bisa dicari di internet).
   - Saat ikon hamburger diklik, tampilkan menu navigasi.
   - Saat ikon diklik lagi, sembunyikan kembali menu navigasi.
-  - **Petunjuk:** Gunakan `addEventListener` untuk mendeteksi klik pada ikon dan mengubah *class* pada elemen navigasi untuk mengontrol tampilannya.
-
+  - **Petunjuk:** Gunakan `addEventListener` untuk mendeteksi klik pada ikon dan mengubah _class_ pada elemen navigasi untuk mengontrol tampilannya.
 
 ---
 
