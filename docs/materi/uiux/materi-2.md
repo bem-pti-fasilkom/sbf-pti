@@ -3,13 +3,8 @@ title: Materi 2
 sidebar_position: 2
 ---
 
-## User Research (Metode, Example Question, Purpose of the Research)
-
-SBF PTI - 2025
-
----
-
-### 1. Introduction to UX and UX Research 
+# User Research (Metode, Example Question, Purpose of the Research)
+## 1. Introduction to UX and UX Research 
 - **User Experience(UX)** merupakan pengalaman keseluruhan pengguna saat berinteraksi dengan produk atau layanan.
 
 - **UX Design Process** umumnya meliputi:
@@ -24,16 +19,16 @@ SBF PTI - 2025
 
 ---
 
-### 2. Purpose of User Research & UX Frameworks
+## 2. Purpose of User Research & UX Frameworks
 
-#### Tujuan User Research
+### Tujuan User Research
 - Membantu memahami **kebutuhan nyata pengguna**.
 - Mengidentifikasi **pain points** dan kebutuhan pengguna.  
 - Menjadi dasar untuk **mendesain solusi yang relevan**.
 - Menghasilkan insight untuk inovasi.
 - Memvalidasi **masalah nyata** pengguna.
 
-#### UX Frameworks yang sering digunakan:
+### UX Frameworks yang sering digunakan:
 1. **Design Thinking:** Framework yang menggunakan pendekatan berpusat pada pengguna untuk memecahkan masalah sekaligus mendorong inovasi. Framework ini sering dianggap sebagai fondasi utama dalam bidang UX/UI karena menekankan pemahaman mendalam terhadap pengguna, menguji asumsi yang ada, serta menghasilkan solusi melalui siklus iterasi yang berulang. Keunggulan utama Design Thinking adalah keterlibatan aktif pengguna sepanjang proses, sehingga desainer benar-benar memahami kebutuhan serta tantangan yang mereka hadapi.
     Proses ini terdiri dari lima tahapan inti:
     1. **Empathize** → menggali kebutuhan dan pengalaman pengguna.
@@ -62,7 +57,7 @@ SBF PTI - 2025
 
 ---
 
-### 3. UX Methods
+## 3. UX Methods
 
 Dalam User Research, terdapat berbagai metode untuk menggali kebutuhan dan pengalaman pengguna. Pemilihan metode bergantung pada **tujuan riset**, **sumber daya**, dan **tingkat kesiapan produk** (ide, wireframe, prototype, atau produk jadi). Berikut metode yang umum digunakan:
 
@@ -107,7 +102,7 @@ Dalam User Research, terdapat berbagai metode untuk menggali kebutuhan dan penga
 
 ---
 
-#### Preparing for User Interview
+### Preparing for User Interview
 
 Wawancara adalah salah satu metode paling efektif dalam User Research, tapi butuh persiapan matang agar hasilnya relevan dan berkualitas. Berikut langkah-langkah yang sebaiknya dilakukan sebelum melakukan user interview:
 
@@ -141,7 +136,7 @@ Pastikan semua alat siap digunakan:
 
 ---
 
-#### Conducting Effective User Interviews
+### Conducting Effective User Interviews
 
 Setelah persiapan dilakukan, tahap berikutnya adalah melaksanakan wawancara dengan baik agar hasilnya valid dan kaya insight. Berikut langkah-langkah yang disarankan:
 
@@ -173,7 +168,7 @@ Setelah persiapan dilakukan, tahap berikutnya adalah melaksanakan wawancara deng
 
 ---
 
-#### Tips and Tricks for Active Listening
+### Tips and Tricks for Active Listening
 
 Agar wawancara lebih efektif, interviewer perlu melatih keterampilan **active listening**:
 
@@ -192,7 +187,7 @@ Agar wawancara lebih efektif, interviewer perlu melatih keterampilan **active li
 
 ---
 
-#### Preparing for Questionnaire
+### Preparing for Questionnaire
 
 Selain wawancara, **kuesioner (questionnaire)** juga merupakan metode populer untuk mengumpulkan data dari banyak pengguna. Metode ini biasanya digunakan ketika peneliti ingin menjangkau audiens yang lebih luas dalam waktu singkat.
 
@@ -232,25 +227,25 @@ Hal yang Perlu Diperhatikan
 
 ---
 
-### 4. Processing UX Research Data
+## 4. Processing UX Research Data
 
 Setelah data terkumpul, langkah berikutnya adalah mengolahnya menjadi **insight yang bisa ditindaklanjuti**. Beberapa metode yang umum digunakan antara lain:
 
-#### 1. Affinity Map
+### 1. Affinity Map
 Mengelompokkan temuan riset berdasarkan tema atau kemiripan.  
 - Membantu mengidentifikasi pola dari banyak data kualitatif.  
 - Biasanya dibuat dengan sticky notes (fisik atau digital). 
 
 ![Affinity Map](./asset/Affinity%20Map.png) 
 
-#### 2. User Persona
+### 2. User Persona
 Membuat profil fiktif yang merepresentasikan target pengguna berdasarkan data nyata.  
 - Berisi informasi demografi, tujuan, motivasi, frustasi, dan perilaku pengguna.  
 - Membantu tim desain memahami siapa yang mereka rancang solusinya.
 
 ![User Persona](./asset/User%20Persona.jpg)
 
-#### 3. User Journey Map
+### 3. User Journey Map
 Visualisasi langkah-langkah yang dilalui pengguna saat menggunakan produk.  
 - Menunjukkan interaksi dari awal hingga akhir.  
 - Berguna untuk mengidentifikasi **pain points** atau hambatan di tiap tahap.  
@@ -259,7 +254,7 @@ Visualisasi langkah-langkah yang dilalui pengguna saat menggunakan produk.
 
 ---
 
-### 5. Creatiing Problem Statement
+## 5. Creating Problem Statement
 Problem Statement adalah **pernyataan singkat yang menjelaskan masalah utama pengguna** yang ingin diselesaikan.  
 - **Tujuan:** Memastikan tim memahami masalah nyata sebelum membuat solusi.  
 - **Format:**  
@@ -279,7 +274,7 @@ Problem Statement adalah **pernyataan singkat yang menjelaskan masalah utama pen
 ::: 
 
 ---
-### 6. Study Case & Example Question
+## 6. Study Case & Example Question
 
 #### Studi Kasus: Aplikasi E-Learning untuk Mahasiswa
 **Masalah:** Banyak mahasiswa meninggalkan modul sebelum selesai.

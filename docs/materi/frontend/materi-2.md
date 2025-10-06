@@ -4,9 +4,6 @@ sidebar_position: 2
 ---
 
 # Javascript Functions & ES6 Basics for React
-
----
-
 ## JavaScript Variables: var, let, dan const
 Di JavaScript, variabel dideklarasikan menggunakan `var`, `let`, atau `const`. Meski fungsinya sama, ketiganya memiliki perbedaan mendasar pada **lingkup (scope)**, **kemampuan untuk diubah**, dan **hoisting**. 
 
@@ -611,4 +608,5 @@ Untuk daftar lengkap semua *event* yang ada di web, Anda bisa melihat referensi 
 
 <!-- end list -->
 
-This is page 2.
+---
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨

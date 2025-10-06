@@ -431,3 +431,6 @@ Bisa dipakai untuk deserialisasi (JSON → object/database).
 Tersedia dua cara: serializers.Serializer (lebih manual) dan ModelSerializer (otomatis berdasarkan model).
 
 👉 Dengan memahami OOP, relasi model, dan serializer di Django REST Framework, kita bisa membangun API yang terstruktur, aman, dan efisien.
+
+---
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
