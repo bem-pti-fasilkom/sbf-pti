@@ -3,66 +3,50 @@ title: Materi 3
 sidebar_position: 3
 ---
 
-# Intro to React Js (Installation, Functional Component, Props, Lifecycle)
+# Pengantar React Js (Instalasi, Komponen Fungsional, Props, Lifecycle)
 
-# Introduction to React.js - Complete Beginner's Guide
+# Pengantar React.js - Panduan Lengkap untuk Pemula
 
-## What is React?
+## Apa itu React?
 
-React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly web applications. Think of React as a tool that helps you create interactive websites by breaking them down into reusable pieces called **components**.
+React adalah library JavaScript yang powerful yang dikembangkan oleh Facebook untuk membangun antarmuka pengguna, khususnya aplikasi web. Bayangkan React sebagai alat yang membantu Anda membuat website interaktif dengan memecahnya menjadi bagian-bagian yang dapat digunakan kembali yang disebut **komponen**.
 
-### Why React?
+### Mengapa React?
 
-- **Component-Based**: Build encapsulated components that manage their own state
-- **Reusable**: Write once, use anywhere in your application
-- **Fast**: Virtual DOM makes updates efficient
-- **Popular**: Huge community and job market demand
+- **Berbasis Komponen**: Bangun komponen yang terkapsulasi dan mengelola state mereka sendiri
+- **Dapat Digunakan Kembali**: Gunakan di mana saja dalam aplikasi Anda
+- **Cepat**: Virtual DOM membuat pembaruan menjadi efisien
+- **Populer**: Komunitas besar dan permintaan pasar kerja yang tinggi
 
 ---
 
-## 1. Installation & Setup
+## 1. Instalasi & Setup
 
-### Prerequisites
+### Prasyarat
 
-Before starting with React, make sure you have:
+Sebelum memulai dengan React, pastikan Anda memiliki:
 
-- **Node.js** (version 14 or higher) - Download from [nodejs.org](https://nodejs.org)
-- Basic knowledge of **HTML**, **CSS**, and **JavaScript**
+- **Node.js** (versi 14 atau lebih tinggi) - Unduh dari [nodejs.org](https://nodejs.org)
+- Pengetahuan dasar **HTML**, **CSS**, dan **JavaScript**
 
-### Method 1: Create React App (Recommended for Beginners)
-
-```bash
-# Install Create React App globally
-npm install -g create-react-app
-
-# Create a new React project
-npx create-react-app my-first-app
-
-# Navigate to your project
-cd my-first-app
-
-# Start the development server
-npm start
-```
-
-### Method 2: Vite (Faster Alternative)
+### Menggunakan Vite (Bagus untuk memulai)
 
 ```bash
-# Create new project with Vite
-npm create vite@latest my-react-app -- --template react
+# Buat proyek baru dengan Vite
+npm create vite@latest aplikasi-react-saya -- --template react
 
-# Navigate and install dependencies
-cd my-react-app
+# Masuk ke folder dan instal dependensi
+cd aplikasi-react-saya
 npm install
 
-# Start development server
+# Jalankan server pengembangan
 npm run dev
 ```
 
-### Project Structure Overview
+### Gambaran Struktur Proyek
 
 ```
-my-first-app/
+aplikasi-pertama-saya/
 ├── public/
 │   └── index.html
 ├── src/
@@ -76,70 +60,70 @@ my-first-app/
 
 ---
 
-## 2. Functional Components
+## 2. Komponen Fungsional
 
-### What are Components?
+### Apa itu Komponen?
 
-Components are like JavaScript functions that return HTML (JSX). They're the building blocks of React applications.
+Komponen seperti fungsi JavaScript yang mengembalikan HTML (JSX). Mereka adalah blok bangunan dari aplikasi React.
 
-### Basic Functional Component
+### Komponen Fungsional Dasar
 
 ```jsx
-// Simple component
-function Welcome() {
-  return <h1>Hello, World!</h1>;
+// Komponen sederhana
+function Selamat() {
+  return <h1>Halo, Dunia!</h1>;
 }
 
-// Arrow function version (RECOMMENDED ONE by Convention)
-const Welcome = () => {
-  return <h1>Hello, World!</h1>;
+// Versi arrow function (DIREKOMENDASIKAN menurut Konvensi)
+const Selamat = () => {
+  return <h1>Halo, Dunia!</h1>;
 };
 
-// Export to use in other files
-export default Welcome;
+// Export untuk digunakan di file lain
+export default Selamat;
 ```
 
 ### JSX - JavaScript XML
 
-JSX lets you write HTML-like code in JavaScript:
+JSX memungkinkan Anda menulis kode mirip HTML dalam JavaScript:
 
 ```jsx
-function MyComponent() {
-  const name = "React";
-  const isLearning = true;
+function KomponenSaya() {
+  const nama = "React";
+  const sedangBelajar = true;
 
   return (
     <div>
-      <h1>Learning {name}</h1>
-      <p>{isLearning ? "You're doing great!" : "Keep trying!"}</p>
-      <button onClick={() => alert("Hello!")}>Click me</button>
+      <h1>Belajar {nama}</h1>
+      <p>{sedangBelajar ? "Kamu hebat!" : "Terus mencoba!"}</p>
+      <button onClick={() => alert("Halo!")}>Klik saya</button>
     </div>
   );
 }
 ```
 
-### JSX Rules
+### Aturan JSX
 
-1. **Single Parent Element**: Wrap multiple elements in a `<div>` or React Fragment `<></>`
-2. **JavaScript Expressions**: Use `{}` to embed JavaScript
-3. **camelCase Attributes**: `className` instead of `class`, `onClick` instead of `onclick`
-4. **Self-Closing Tags**: `<img />`, `<br />`, `<hr />`
+1. **Elemen Parent Tunggal**: Bungkus beberapa elemen dalam `<div>` atau React Fragment `<></>`
+2. **Ekspresi JavaScript**: Gunakan `{}` untuk menyematkan JavaScript
+3. **Atribut camelCase**: `className` bukan `class`, `onClick` bukan `onclick`
+4. **Tag Self-Closing**: `<img />`, `<br />`, `<hr />`
 
-### Example: User Card Component
+### Contoh: Komponen Kartu Pengguna
 
 ```jsx
-function UserCard() {
-  const user = {
-    name: "John Doe",
-    age: 25,
-    location: "New York",
+function KartuPengguna() {
+  const pengguna = {
+    nama: "Budi Santoso",
+    umur: 25,
+    lokasi: "Jakarta",
   };
 
   return (
-    <div className="user-card">
-      <h2>{user.name}</h2>
-      <p>Age: {user.age}</p>
-      <p>Location: {user.location}</p>
+    <div className="kartu-pengguna">
+      <h2>{pengguna.nama}</h2>
+      <p>Umur: {pengguna.umur}</p>
+      <p>Lokasi: {pengguna.lokasi}</p>
     </div>
   );
 }
@@ -147,104 +131,104 @@ function UserCard() {
 
 ---
 
-## 3. Props (Properties)
+## 3. Props (Properti)
 
-### What are Props?
+### Apa itu Props?
 
-Props are how you pass data from parent components to child components. Think of them as function parameters.
+Props adalah cara Anda mengoper data dari komponen parent ke komponen child. Anggap saja seperti parameter fungsi.
 
-### Basic Props Usage
+### Penggunaan Props Dasar
 
 ```jsx
-// Child component that receives props
-function Greeting(props) {
-  return <h1>Hello, {props.name}!</h1>;
+// Komponen child yang menerima props
+function Salam(props) {
+  return <h1>Halo, {props.nama}!</h1>;
 }
 
-// Parent component that passes props
+// Komponen parent yang mengoper props
 function App() {
   return (
     <div>
-      <Greeting name="Alice" />
-      <Greeting name="Bob" />
-      <Greeting name="Charlie" />
+      <Salam nama="Alice" />
+      <Salam nama="Bob" />
+      <Salam nama="Charlie" />
     </div>
   );
 }
 ```
 
-### Props Destructuring (Cleaner Syntax)
+### Destructuring Props (Sintaks Lebih Bersih)
 
 ```jsx
-// Instead of props.name, props.age
-function UserProfile({ name, age, email }) {
+// Daripada props.nama, props.umur
+function ProfilPengguna({ nama, umur, email }) {
   return (
-    <div className="profile">
-      <h2>{name}</h2>
-      <p>Age: {age}</p>
+    <div className="profil">
+      <h2>{nama}</h2>
+      <p>Umur: {umur}</p>
       <p>Email: {email}</p>
     </div>
   );
 }
 
-// Usage
+// Penggunaan
 function App() {
-  return <UserProfile name="Sarah Wilson" age={28} email="sarah@example.com" />;
+  return <ProfilPengguna nama="Sarah Wilson" umur={28} email="sarah@example.com" />;
 }
 ```
 
-### Different Types of Props
+### Berbagai Tipe Props
 
 ```jsx
-function ProductCard({
-  title, // string
-  price, // number
-  isOnSale, // boolean
-  tags, // array
-  onBuy, // function
+function KartuProduk({
+  judul, // string
+  harga, // number
+  sedangDiskon, // boolean
+  tag, // array
+  onBeli, // function
 }) {
   return (
-    <div className="product">
-      <h3>{title}</h3>
-      <p>${price}</p>
-      {isOnSale && <span className="sale-badge">ON SALE!</span>}
+    <div className="produk">
+      <h3>{judul}</h3>
+      <p>Rp{harga}</p>
+      {sedangDiskon && <span className="badge-diskon">DISKON!</span>}
       <div>
-        {tags.map((tag, index) => (
+        {tag.map((t, index) => (
           <span key={index} className="tag">
-            {tag}
+            {t}
           </span>
         ))}
       </div>
-      <button onClick={onBuy}>Buy Now</button>
+      <button onClick={onBeli}>Beli Sekarang</button>
     </div>
   );
 }
 
-// Usage
+// Penggunaan
 function App() {
-  const handlePurchase = () => {
-    alert("Added to cart!");
+  const handlePembelian = () => {
+    alert("Ditambahkan ke keranjang!");
   };
 
   return (
-    <ProductCard
-      title="Wireless Headphones"
-      price={99.99}
-      isOnSale={true}
-      tags={["electronics", "audio", "wireless"]}
-      onBuy={handlePurchase}
+    <KartuProduk
+      judul="Headphone Wireless"
+      harga={999000}
+      sedangDiskon={true}
+      tag={["elektronik", "audio", "nirkabel"]}
+      onBeli={handlePembelian}
     />
   );
 }
 ```
 
-### Default Props
+### Props Default
 
 ```jsx
-function Button({ text = "Click me", color = "blue", onClick }) {
+function Tombol({ teks = "Klik saya", warna = "blue", onClick }) {
   return (
-    <button style={{ backgroundColor: color }} onClick={onClick}>
-      {text}
+    <button style={{ backgroundColor: warna }} onClick={onClick}>
+      {teks}
     </button>
   );
 }
@@ -252,49 +236,49 @@ function Button({ text = "Click me", color = "blue", onClick }) {
 
 ---
 
-## 4. Component Lifecycle & Hooks
+## 4. Lifecycle Komponen & Hooks
 
-### Introduction to Hooks
+### Pengantar Hooks
 
-Hooks are functions that let you "hook into" React features. They always start with `use`.
+Hooks adalah fungsi yang memungkinkan Anda "mengaitkan" ke fitur React. Mereka selalu dimulai dengan `use`.
 
-### useState Hook - Managing State
+### Hook useState - Mengelola State
 
 ```jsx
 import { useState } from "react";
 
-function Counter() {
-  // Declare state variable with initial value
-  const [count, setCount] = useState(0);
+function Penghitung() {
+  // Deklarasikan variabel state dengan nilai awal
+  const [hitung, setHitung] = useState(0);
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <p>Hitung: {hitung}</p>
+      <button onClick={() => setHitung(hitung + 1)}>Tambah</button>
+      <button onClick={() => setHitung(hitung - 1)}>Kurang</button>
+      <button onClick={() => setHitung(0)}>Reset</button>
     </div>
   );
 }
 ```
 
-### Multiple State Variables
+### Beberapa Variabel State
 
 ```jsx
-function UserForm() {
-  const [name, setName] = useState("");
+function FormPengguna() {
+  const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sedangSubmit, setSedangSubmit] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSedangSubmit(true);
 
-    // Simulate API call
+    // Simulasi panggilan API
     setTimeout(() => {
-      alert(`Hello ${name}! Email: ${email}`);
-      setIsSubmitting(false);
-      setName("");
+      alert(`Halo ${nama}! Email: ${email}`);
+      setSedangSubmit(false);
+      setNama("");
       setEmail("");
     }, 1000);
   };
@@ -303,79 +287,79 @@ function UserForm() {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Your name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        placeholder="Nama Anda"
+        value={nama}
+        onChange={(e) => setNama(e.target.value)}
       />
       <input
         type="email"
-        placeholder="Your email"
+        placeholder="Email Anda"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Submit"}
+      <button type="submit" disabled={sedangSubmit}>
+        {sedangSubmit ? "Mengirim..." : "Kirim"}
       </button>
     </form>
   );
 }
 ```
 
-### useEffect Hook - Side Effects
+### Hook useEffect - Side Effects
 
 ```jsx
 import { useState, useEffect } from "react";
 
 function Timer() {
-  const [seconds, setSeconds] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+  const [detik, setDetik] = useState(0);
+  const [berjalan, setBerjalan] = useState(false);
 
-  // Effect runs after every render
+  // Effect berjalan setelah setiap render
   useEffect(() => {
     let interval = null;
 
-    if (isRunning) {
+    if (berjalan) {
       interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
+        setDetik((detik) => detik + 1);
       }, 1000);
     }
 
-    // Cleanup function (runs before next effect or unmount)
+    // Fungsi cleanup (berjalan sebelum effect berikutnya atau unmount)
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isRunning]); // Dependency array - effect runs when isRunning changes
+  }, [berjalan]); // Array dependency - effect berjalan ketika berjalan berubah
 
   return (
     <div>
-      <h2>Timer: {seconds}s</h2>
-      <button onClick={() => setIsRunning(!isRunning)}>
-        {isRunning ? "Pause" : "Start"}
+      <h2>Timer: {detik} detik</h2>
+      <button onClick={() => setBerjalan(!berjalan)}>
+        {berjalan ? "Pause" : "Mulai"}
       </button>
-      <button onClick={() => setSeconds(0)}>Reset</button>
+      <button onClick={() => setDetik(0)}>Reset</button>
     </div>
   );
 }
 ```
 
-### Common useEffect Patterns
+### Pola useEffect Umum
 
-#### 1. Component Did Mount (runs once)
+#### 1. Component Did Mount (berjalan sekali)
 
 ```jsx
 useEffect(() => {
-  // Fetch data when component mounts
-  fetchUserData();
-}, []); // Empty dependency array = runs once
+  // Ambil data ketika komponen di-mount
+  fetchDataPengguna();
+}, []); // Array dependency kosong = berjalan sekali
 ```
 
-#### 2. Component Did Update (runs on specific changes)
+#### 2. Component Did Update (berjalan pada perubahan tertentu)
 
 ```jsx
 useEffect(() => {
-  // Save to localStorage when count changes
-  localStorage.setItem("count", count);
-}, [count]); // Runs when count changes
+  // Simpan ke localStorage ketika hitung berubah
+  localStorage.setItem("hitung", hitung);
+}, [hitung]); // Berjalan ketika hitung berubah
 ```
 
 #### 3. Component Will Unmount (cleanup)
@@ -387,81 +371,81 @@ useEffect(() => {
   }, 1000);
 
   return () => {
-    clearInterval(timer); // Cleanup on unmount
+    clearInterval(timer); // Cleanup saat unmount
   };
 }, []);
 ```
 
 ---
 
-## 5. Practical Examples
+## 5. Contoh Praktis
 
-### Todo List Application
+### Aplikasi Daftar Todo
 
 ```jsx
 import { useState } from "react";
 
-function TodoApp() {
+function AplikasiTodo() {
   const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [nilaiInput, setNilaiInput] = useState("");
 
-  const addTodo = () => {
-    if (inputValue.trim()) {
+  const tambahTodo = () => {
+    if (nilaiInput.trim()) {
       setTodos([
         ...todos,
         {
           id: Date.now(),
-          text: inputValue,
-          completed: false,
+          teks: nilaiInput,
+          selesai: false,
         },
       ]);
-      setInputValue("");
+      setNilaiInput("");
     }
   };
 
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? { ...todo, selesai: !todo.selesai } : todo
       )
     );
   };
 
-  const deleteTodo = (id) => {
+  const hapusTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div className="todo-app">
-      <h1>Todo List</h1>
+    <div className="aplikasi-todo">
+      <h1>Daftar Todo</h1>
 
-      <div className="add-todo">
+      <div className="tambah-todo">
         <input
           type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Add a new todo..."
-          onKeyPress={(e) => e.key === "Enter" && addTodo()}
+          value={nilaiInput}
+          onChange={(e) => setNilaiInput(e.target.value)}
+          placeholder="Tambah todo baru..."
+          onKeyPress={(e) => e.key === "Enter" && tambahTodo()}
         />
-        <button onClick={addTodo}>Add</button>
+        <button onClick={tambahTodo}>Tambah</button>
       </div>
 
-      <div className="todo-list">
+      <div className="daftar-todo">
         {todos.map((todo) => (
-          <div key={todo.id} className="todo-item">
+          <div key={todo.id} className="item-todo">
             <input
               type="checkbox"
-              checked={todo.completed}
+              checked={todo.selesai}
               onChange={() => toggleTodo(todo.id)}
             />
             <span
               style={{
-                textDecoration: todo.completed ? "line-through" : "none",
+                textDecoration: todo.selesai ? "line-through" : "none",
               }}
             >
-              {todo.text}
+              {todo.teks}
             </span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button onClick={() => hapusTodo(todo.id)}>Hapus</button>
           </div>
         ))}
       </div>
@@ -472,33 +456,33 @@ function TodoApp() {
 
 ---
 
-## 6. Best Practices for Beginners
+## 6. Best Practices untuk Pemula
 
-### 1. Component Organization
+### 1. Organisasi Komponen
 
-- Keep components small and focused
-- One component per file
-- Use descriptive names
+- Jaga komponen tetap kecil dan fokus
+- Satu komponen per file
+- Gunakan nama yang deskriptif
 
-### 2. Props Best Practices
+### 2. Best Practices Props
 
-- Destructure props for cleaner code
-- Provide default values when needed
-- Validate props with PropTypes (optional)
+- Destructure props untuk kode yang lebih bersih
+- Berikan nilai default bila diperlukan
+- Validasi props dengan PropTypes (opsional)
 
-### 3. State Management
+### 3. Manajemen State
 
-- Keep state as simple as possible
-- Don't duplicate data in state
-- Update state immutably
+- Jaga state sesederhana mungkin
+- Jangan duplikasi data di state
+- Update state secara immutable
 
-### 4. Common Patterns
+### 4. Pola Umum
 
 ```jsx
-// Conditional rendering
-{isLoggedIn ? <Dashboard /> : <Login />}
+// Rendering kondisional
+{sudahLogin ? <Dashboard /> : <Login />}
 
-// List rendering
+// Rendering list
 {items.map(item => <Item key={item.id} data={item} />)}
 
 // Event handling
@@ -507,35 +491,35 @@ function TodoApp() {
 
 ---
 
-## 7. Next Steps
+## 7. Langkah Selanjutnya
 
-After mastering these concepts, explore:
+Setelah menguasai konsep-konsep ini, jelajahi:
 
-1. **React Router** - Navigation between pages
-2. **Context API** - Global state management
-3. **Custom Hooks** - Reusable logic
-4. **Testing** - Jest and React Testing Library
+1. **React Router** - Navigasi antar halaman
+2. **Context API** - Manajemen state global
+3. **Custom Hooks** - Logika yang dapat digunakan kembali
+4. **Testing** - Jest dan React Testing Library
 5. **Styling** - CSS Modules, Styled Components
 6. **State Management** - Redux, Zustand
 
 ---
 
-## Quick Reference
+## Referensi Cepat
 
-### Essential Hooks
+### Hooks Penting
 
-- `useState()` - Manage component state
-- `useEffect()` - Handle side effects
-- `useContext()` - Access React context
-- `useReducer()` - Complex state logic
+- `useState()` - Mengelola state komponen
+- `useEffect()` - Menangani side effects
+- `useContext()` - Mengakses React context
+- `useReducer()` - Logika state yang kompleks
 
-### Common Patterns
+### Pola Umum
 
 ```jsx
-// State update
-const [state, setState] = useState(initialValue);
+// Update state
+const [state, setState] = useState(nilaiAwal);
 
-// Effect with cleanup
+// Effect dengan cleanup
 useEffect(() => {
   // setup
   return () => {
@@ -546,15 +530,17 @@ useEffect(() => {
 // Event handler
 const handleClick = (e) => {
   e.preventDefault();
-  // handle event
+  // tangani event
 };
 ```
 
 ---
 
-## Resources for Further Learning
+## Sumber untuk Pembelajaran Lebih Lanjut
 
-- **Official React Documentation**: [reactjs.org](https://reactjs.org)
-- **React DevTools**: Browser extension for debugging
-- **Create React App**: [create-react-app.dev](https://create-react-app.dev)
-- **freeCodeCamp React Course**: Free comprehensive tutorial
+- **Dokumentasi Resmi React**: [reactjs.org](https://reactjs.org)
+- **React DevTools**: Extension browser untuk debugging
+- **freeCodeCamp React Course**: Tutorial komprehensif gratis
+
+---
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
