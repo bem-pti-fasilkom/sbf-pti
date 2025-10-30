@@ -90,12 +90,6 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {
-            type: 'docSidebar',
             sidebarId: 'materiSidebar',
             position: 'left',
             label: 'Materi',
@@ -116,7 +110,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/category/tutorial/',
+                to: 'https://github.com/facebook/docusaurus',
               },
             ],
           },
