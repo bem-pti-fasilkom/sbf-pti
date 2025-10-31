@@ -7,9 +7,9 @@ sidebar_position: 3
 
 ## What is REST?
 
-**Representational State Transfer (REST) adalah suatu architectural style di mana client dan server terpisah**. Keterpisahan ini memungkinkan code di sisi client untuk dimodifikasi tanpa mengganggu sisi server dan kedua sisi juga tidak perlu mengetahui state masing-masing untuk bisa beroperasi. Selama kedua sisi mengetahui format yang digunakan untuk berkomunikasi dengan satu sama lain, yaitu HTTP request dari client ke server dan JSON response dari server ke client, kedua sisi dapat berkomunikasi dan bertukar informasi dengan satu sama lain 
+**Representational State Transfer (REST) adalah suatu architectural style di mana client dan server terpisah**. Keterpisahan ini memungkinkan code di sisi client untuk dimodifikasi tanpa mengganggu sisi server dan kedua sisi juga tidak perlu mengetahui state masing-masing untuk bisa beroperasi. Selama kedua sisi mengetahui format yang digunakan untuk berkomunikasi dengan satu sama lain, yaitu HTTP request dari client ke server dan JSON response dari server ke client, kedua sisi dapat berkomunikasi dan bertukar informasi dengan satu sama lain
 
-##  Django REST Framework
+## Django REST Framework
 
 ### Class-Based View
 
@@ -18,6 +18,7 @@ View adalah suatu proses yang menerima sebuah request dan memberi response yang 
 Dengan class-based view, kita bisa membuat **struktur view yang lebih flexible dan complex**. Di mana kita mengatur response yang sesuai untuk method-method HTTP tertentu dengan conditional branching pada function-based view, kita bisa membuat method-method khusus untuk method-method HTTP tersebut pada class-based-view.
 
 #### Contoh Versi Class-Based View
+
 ```python
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -69,6 +70,7 @@ class StudentDetailAPIView(APIView):
 ```
 
 #### Contoh Versi Function-Based View
+
 ```python
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -118,6 +120,7 @@ def studentDetails(request, id):
 ```
 
 #### Filtering & Pagination Dengan Class-Based View
+
 ```python
 class StudentListCreateAPIView(APIView):
     """
@@ -156,6 +159,7 @@ class StudentListCreateAPIView(APIView):
 ```
 
 #### Filtering & Pagination Dengan Function-Based View
+
 ```python
 @api_view(['GET', 'POST'])
 def allStudents(request):
@@ -188,11 +192,13 @@ def allStudents(request):
 ```
 
 ---
+
 ### URL
 
 **Uniform Resource Locator (URL) me-map suatu request dengan suatu function/class yang memberi suatu response**. Pada Django, mapping URL dengan function/classnya dilakukan di urls.py. Saat suatu request dikirim oleh browser, URL pattern yang sesuai akan dicari, lalu, jika URL ditemukan, function/class yang bersangkutan akan di-call untuk mendapat response. Jika URL pattern tidak ditemukan, Django akan me-return status code 404 (Not Found).
 
 #### Contoh URL
+
 ```python
 from django.contrib import admin
 from django.urls import path, include
@@ -231,6 +237,7 @@ render(request, 'studentDetails.html', {'student': Student.object.all().filter(p
 ```
 
 ---
+
 ### CRUD
 
 Operasi Create, Retrieve, Update, and Delete (CRUD) adalah empat operasi fundamental dalam pemeliharaan data dalam sebuah database.
@@ -246,7 +253,7 @@ Method-method HTTP yang ekuivalen dengan operasi-operasi di atas adalah:
 **Create** : **POST**  
 **Retrieve** : **GET**  
 **Update** : **PUT** & **PATCH**  
-**Delete** : **DELETE**  
+**Delete** : **DELETE**
 
 \
 **PUT vs PATCH**
@@ -254,6 +261,7 @@ Method-method HTTP yang ekuivalen dengan operasi-operasi di atas adalah:
 Walaupun sama-sama meng-update data object, terdapat perbedaan antara PUT dan PATCH; **PUT akan memodifikasi seluruh bagian dari object sedangkan PATCH hanya memodifikasi sebagian dari object tersebut**. Oleh karena itu, request body dari PUT harus mengandung seluruh data yang dimiliki suatu object dan request body dari PATCH hanya mengandung sebagian dari data tersebut. Jika terdapat field yang tidak dicantumkan, PUT akan menghapus/men-default-kan field itu dan PATCH tidak akan mengubah datanya.
 
 #### Contoh CRUD
+
 ```python
 # Create
 def post(self, request):
@@ -303,10 +311,10 @@ def delete(self, request, pk):
 ```
 
 ---
+
 ### Response
 
 Response, sesuai dengan namanya, adalah **jawaban dari API terhadap suatu HTTP request**. Jawaban tersebut berupa content yang sesuai dengan request yang diterima. Signature dan penjelasan dari arguments class Response bawaan Django REST Framework adalah sebagai berikut:
-
 
 **Response(data, status=None, template_name=None, headers=None, content_type=None)**
 
@@ -320,27 +328,27 @@ Response, sesuai dengan namanya, adalah **jawaban dari API terhadap suatu HTTP r
 \
 Selain Response, Django (Django ori bukan DRF) juga memiliki beberapa tipe response lain:
 
-**HttpResponse**              : Basic HTML.\
-**JsonResponse**              : Memberi data dalam bentuk JSON untuk API.\
-**HttpResponseRedirect**      : Redirect ke URL lain.\
-**FileResponse**              : Memberi file yang bisa didownload.\
-**StreamingHttpResponse**     : Stream file yang berukuran besar.\
-**HttpResponseBadRequest**    : Jika client memberi request yang invalid.\
-**HttpResponseForbidden**     : Jika client tidak memiliki izin untuk mengakses suatu fitur.\
-**HttpResponseNotFound**      : Jika resource yang di-request tidak ada.\
-**HttpResponseServerError**   : Server-side error.
+**HttpResponse** : Basic HTML.\
+**JsonResponse** : Memberi data dalam bentuk JSON untuk API.\
+**HttpResponseRedirect** : Redirect ke URL lain.\
+**FileResponse** : Memberi file yang bisa didownload.\
+**StreamingHttpResponse** : Stream file yang berukuran besar.\
+**HttpResponseBadRequest** : Jika client memberi request yang invalid.\
+**HttpResponseForbidden** : Jika client tidak memiliki izin untuk mengakses suatu fitur.\
+**HttpResponseNotFound** : Jika resource yang di-request tidak ada.\
+**HttpResponseServerError** : Server-side error.
 
 \
 Untuk memberi 'kabar' dari hasil suatu request, kita dapat menggunakan **status code**. Beberapa status code yang umum digunakan adalah sebagai berikut:
 
-**HTTP_200_OK**                     : Success\
-**HTTP_201_CREATED**                : Resource created\
-**HTTP_204_NO_CONTENT**             : No data\
-**HTTP_400_BAD_REQUEST**            : Request invalid\
-**HTTP_401_UNAUTHORIZED**           : Not authenticated\
-**HTTP_403_FORBIDDEN**              : Permission denied\
-**HTTP_404_NOT_FOUND**              : Resource not found\
-**HTTP_500_INTERNAL_SERVER_ERROR**  : Server error
+**HTTP_200_OK** : Success\
+**HTTP_201_CREATED** : Resource created\
+**HTTP_204_NO_CONTENT** : No data\
+**HTTP_400_BAD_REQUEST** : Request invalid\
+**HTTP_401_UNAUTHORIZED** : Not authenticated\
+**HTTP_403_FORBIDDEN** : Permission denied\
+**HTTP_404_NOT_FOUND** : Resource not found\
+**HTTP_500_INTERNAL_SERVER_ERROR** : Server error
 
 ---
 
@@ -357,3 +365,7 @@ Documentation (n.d.). Django. https://docs.djangoproject.com/
 REST API Introduction (2025). GeeksforGeeks. https://www.geeksforgeeks.org/node-js/rest-api-introduction/
 
 Tutorial (n.d.). Django REST framework. https://www.django-rest-framework.org/#
+
+---
+
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
