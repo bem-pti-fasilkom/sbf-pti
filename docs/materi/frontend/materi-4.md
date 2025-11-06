@@ -5,22 +5,11 @@ sidebar_position: 4
 
 # React JS Advanced  Routing, Hooks, Fetching
 
-> Materi ini membahas 3 topik penting di React modern: Routing (React Router v6), Hooks (built-in & custom), dan Data Fetching (fetch / axios / React Query). Di setiap bagian disertakan contoh implementasi langkah-demi-langkah agar bisa dicoba langsung.
-
----
-
 ## Ringkasan singkat
 
 - Routing: membuat halaman berbeda di Single Page Application dengan React Router v6 (route, nested route, params, navigation).
 - Hooks: penggunaan dan contoh implementasi useState, useEffect, useRef, useContext, useReducer, dan cara buat custom hook.
 - Fetching: pola mengambil data dari API dengan fetch/axios, pembatalan request, penanganan loading/error, dan pengenalan React Query untuk caching/revalidation.
-
----
-
-## Cara pakai materi ini
-
-1. Tutorial ini ditulis sebagai panduan untuk project React (Create React App atau Vite).
-2. Untuk mencoba contoh, ikuti bagian "Try it" di setiap topik atau langsung ke Mini-Project di bagian akhir.
 
 ---
 
@@ -465,19 +454,3 @@ Catatan: kalau API publik yang dipakai down, gunakan mock data di `Movies.jsx` d
 - React Hooks: https://reactjs.org/docs/hooks-intro.html
 - React Query (TanStack): https://tanstack.com/query/latest
 - SWR: https://swr.vercel.app/
-
----
-
-## Git: commit & push perubahan materi
-
-Jika kamu ingin menyimpan perubahan di repo ini, contoh perintah PowerShell:
-
-```powershell
-git add docs/materi/frontend/materi-4.md
-git commit -m "Add: Materi 4  React advanced (routing, hooks, fetching) with examples"
-git push -u origin feat/week4
-```
-
----
-
-Kalau mau, aku bisa langsung commit dan push file ini ke branch `feat/week4` untuk kamu. Mau aku jalankan itu sekarang? Jika ya, konfirmasi dan aku akan melakukan add/commit/push. Jika tidak, kamu bisa menjalankan perintah di atas sendiri.
