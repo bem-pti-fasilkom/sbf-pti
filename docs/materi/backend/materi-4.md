@@ -24,6 +24,10 @@ Setelah menyelesaikan materi ini, peserta diharapkan bisa:
 
 3. **Best Practices**
 
+    * Memahami apa itu best practice
+    * Memahami mengapa best practice perlu diterapkan
+    * Mengetahui apa saja yang dapat dilakukan untuk mencapai best practice
+
 ---
 
 ## Authentication
