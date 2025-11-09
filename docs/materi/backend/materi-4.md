@@ -1,5 +1,5 @@
 ---
-title: Authentication, Validation, and Best Practices
+title: Materi 4
 sidebar_position: 4
 ---
 
@@ -11,22 +11,22 @@ Setelah menyelesaikan materi ini, peserta diharapkan bisa:
 
 1. **Authentication**
 
-   * Memahami perbedaan antara authentication dan authorization.
-   * Mengimplementasikan berbagai metode autentikasi (Session, Token, JWT).
-   * Membuat fungsi authentication sederhana menggunakan DRF.
-   * Menyusun strategi keamanan dasar seperti token management, penggunaan HTTPS, serta konfigurasi CSRF dan CORS.
+   - Memahami perbedaan antara authentication dan authorization.
+   - Mengimplementasikan berbagai metode autentikasi (Session, Token, JWT).
+   - Membuat fungsi authentication sederhana menggunakan DRF.
+   - Menyusun strategi keamanan dasar seperti token management, penggunaan HTTPS, serta konfigurasi CSRF dan CORS.
 
 2. **Validation**
 
-   * Memahami pentingnya validasi dalam API development.
-   * Membuat custom validator untuk kebutuhan tertentu (misalnya password strength).
-   * Menyusun error handling yang konsisten dan mudah dipahami.
+   - Memahami pentingnya validasi dalam API development.
+   - Membuat custom validator untuk kebutuhan tertentu (misalnya password strength).
+   - Menyusun error handling yang konsisten dan mudah dipahami.
 
 3. **Best Practices**
 
-    * Memahami apa itu best practice
-    * Memahami mengapa best practice perlu diterapkan
-    * Mengetahui apa saja yang dapat dilakukan untuk mencapai best practice
+   - Memahami apa itu best practice
+   - Memahami mengapa best practice perlu diterapkan
+   - Mengetahui apa saja yang dapat dilakukan untuk mencapai best practice
 
 ---
 
@@ -51,64 +51,62 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
 
 #### 1. **Basic Authentication**
 
-   * **Cara kerja**: username dan password dikirim setiap request di header HTTP, biasanya dalam format Base64
-   * **Kelebihan**: sederhana dan mudah dipakai.
-   * **Kekurangan**: sangat tidak aman tanpa HTTPS karena kredensial bisa dicuri.
-   * **Contoh header request**:
-        ```http
-        Authorization: Basic noldsafOINoSNfslsfw
-        ```
+- **Cara kerja**: username dan password dikirim setiap request di header HTTP, biasanya dalam format Base64
+- **Kelebihan**: sederhana dan mudah dipakai.
+- **Kekurangan**: sangat tidak aman tanpa HTTPS karena kredensial bisa dicuri.
+- **Contoh header request**:
+  ```http
+  Authorization: Basic noldsafOINoSNfslsfw
+  ```
 
 #### 2. **Session Authentication**
 
-   * **Cara kerja**: setelah login, server menyimpan session ID di database lalu mengirimkan cookie ke client. Setiap request berikutnya membawa cookie ini → server mengenali pengguna berdasarkan session. Umumnya digunakan di Django web app biasa (fullstack).
-   * **Kelebihan**: aman karena session disimpan di server.
-   * **Kekurangan**: lebih cocok untuk aplikasi web tradisional, kurang efisien untuk API modern.
-   
+- **Cara kerja**: setelah login, server menyimpan session ID di database lalu mengirimkan cookie ke client. Setiap request berikutnya membawa cookie ini → server mengenali pengguna berdasarkan session. Umumnya digunakan di Django web app biasa (fullstack).
+- **Kelebihan**: aman karena session disimpan di server.
+- **Kekurangan**: lebih cocok untuk aplikasi web tradisional, kurang efisien untuk API modern.
 
 #### 3. **Token Authentication**
 
-   * **Cara kerja**: setelah login, server memberikan sebuah token unik. Client harus mengirim token tersebut di setiap request (biasanya via header Authorization).
-   * **Kelebihan**: sederhana, cocok untuk API atau back-end application.
-   * **Kekurangan**: token biasanya tidak ada masa kadaluarsa, sehingga kurang fleksibel.
-   * **Contoh header request**:
-        ```http
-        Authorization: Token 1234567890abcdef
-        ```
+- **Cara kerja**: setelah login, server memberikan sebuah token unik. Client harus mengirim token tersebut di setiap request (biasanya via header Authorization).
+- **Kelebihan**: sederhana, cocok untuk API atau back-end application.
+- **Kekurangan**: token biasanya tidak ada masa kadaluarsa, sehingga kurang fleksibel.
+- **Contoh header request**:
+  ```http
+  Authorization: Token 1234567890abcdef
+  ```
 
 #### 4. **JWT (JSON Web Token)**
 
-   * **Cara kerja**: setelah login, server memberikan JWT (encoded string) yang berisi informasi user (payload) + tanda tangan digital. Client menyertakan JWT pada setiap request. JWT bisa memiliki access token (masa berlaku singkat) dan refresh token (untuk memperbarui access token).
-   * **Kelebihan**: stateless (server tidak perlu menyimpan session), umum digunakan di SPA (React, Vue, Angular) dan mobile apps.
-   * **Kekurangan**: lebih kompleks, harus hati-hati dalam menyimpan token.
-   * **Contoh header request**:
-        ```http
-        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR...
-        ```
+- **Cara kerja**: setelah login, server memberikan JWT (encoded string) yang berisi informasi user (payload) + tanda tangan digital. Client menyertakan JWT pada setiap request. JWT bisa memiliki access token (masa berlaku singkat) dan refresh token (untuk memperbarui access token).
+- **Kelebihan**: stateless (server tidak perlu menyimpan session), umum digunakan di SPA (React, Vue, Angular) dan mobile apps.
+- **Kekurangan**: lebih kompleks, harus hati-hati dalam menyimpan token.
+- **Contoh header request**:
+  ```http
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR...
+  ```
 
 #### 5. **OAuth2 dan Social Login**
 
-   * **Cara kerja**: mekanisme login menggunakan akun pihak ketiga (Google, Facebook, GitHub, dll).
-   * **Kelebihan**: user tidak perlu membuat akun baru, keamanan lebih baik dengan kontrol akses (scopes).
-   * **Kekurangan**: implementasi lebih rumit, butuh integrasi dengan provider eksternal.
+- **Cara kerja**: mekanisme login menggunakan akun pihak ketiga (Google, Facebook, GitHub, dll).
+- **Kelebihan**: user tidak perlu membuat akun baru, keamanan lebih baik dengan kontrol akses (scopes).
+- **Kekurangan**: implementasi lebih rumit, butuh integrasi dengan provider eksternal.
 
 #### 6. **Multi-Factor Authentication (MFA)**
 
-   * **Cara kerja**: selain password, pengguna juga harus memberikan faktor tambahan (OTP via SMS/email, kode dari aplikasi authenticator, biometrik).
-   * **Kelebihan**: meningkatkan keamanan, sulit ditembus walaupun password bocor.
-   * **Kekurangan**: bisa merepotkan pengguna jika tidak didesain dengan baik + biaya tambahan saat implementasi :(.
+- **Cara kerja**: selain password, pengguna juga harus memberikan faktor tambahan (OTP via SMS/email, kode dari aplikasi authenticator, biometrik).
+- **Kelebihan**: meningkatkan keamanan, sulit ditembus walaupun password bocor.
+- **Kekurangan**: bisa merepotkan pengguna jika tidak didesain dengan baik + biaya tambahan saat implementasi :(.
 
 #### 7. **Biometric Authentication**
 
-   * **Cara kerja**: menggunakan faktor biologis seperti sidik jari, pengenalan wajah, atau retina.
-   * **Kelebihan**: sangat user-friendly, cepat, dan aman.
-   * **Kekurangan**: butuh hardware khusus, rawan isu privasi.
-
+- **Cara kerja**: menggunakan faktor biologis seperti sidik jari, pengenalan wajah, atau retina.
+- **Kelebihan**: sangat user-friendly, cepat, dan aman.
+- **Kekurangan**: butuh hardware khusus, rawan isu privasi.
 
 ### Contoh Implementasi Authentication
 
 #### 1. **Session Authentication**
-    
+
     **Konfigurasi**
 
         ```python
@@ -122,7 +120,7 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
         MIDDLEWARE = [
             ...,
             'django.contrib.sessions.middleware.SessionMiddleware',
-            'django.middleware.csrf.CsrfViewMiddleware',  
+            'django.middleware.csrf.CsrfViewMiddleware',
             ...
         ]
 
@@ -305,7 +303,7 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
         from rest_framework.permissions import IsAuthenticated
 
         class ProfileView(APIView):
-            permission_classes = [IsAuthenticated]   
+            permission_classes = [IsAuthenticated]
 
             def get(self, request):
                 return Response({"username": request.user.username})
@@ -329,6 +327,7 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
         :::
 
 #### 3. **JWT (JSON Web Token)**
+
     **Instalasi & Konfigurasi**
 
         ```bash
@@ -418,7 +417,7 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
 
         {"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."} <- Masukkan refresh_token yang didapat dari response login
         ```
-    
+
 
     **View Protection**
 
@@ -442,7 +441,7 @@ Sementara itu, **Authorization** adalah proses pemberian hak akses setelah ident
         GET /api/secure-data/
         Authorization: Bearer <access_token>
         ```
-    
+
         :::note
 
         Saat melakukan request pada endpoint /login/
@@ -471,91 +470,95 @@ Dalam API development, terutama menggunakan Django REST Framework, validation di
 
 #### 1. **Field-level Validation**
 
-   * **Cara kerja**: Validasi dilakukan untuk satu field tertentu.
-   * **Cara implementasi**: Membuat method validate_[fieldname] dalam serializer.
-   * **Kekurangan**: sangat tidak aman tanpa HTTPS karena kredensial bisa dicuri.
-   * **Contoh kasus**: memastikan email valid atau umur tidak negatif.
-   * **Contoh kode**:
-        ```python
-        from rest_framework import serializers
+- **Cara kerja**: Validasi dilakukan untuk satu field tertentu.
+- **Cara implementasi**: Membuat method validate\_[fieldname] dalam serializer.
+- **Kekurangan**: sangat tidak aman tanpa HTTPS karena kredensial bisa dicuri.
+- **Contoh kasus**: memastikan email valid atau umur tidak negatif.
+- **Contoh kode**:
 
-        class UserSerializer(serializers.Serializer):
-            username = serializers.CharField(max_length=50)
-            age = serializers.IntegerField()
+  ```python
+  from rest_framework import serializers
 
-            def validate_age(self, value):
-                if value < 0:
-                    raise serializers.ValidationError("Umur tidak boleh negatif.")
-                return value
+  class UserSerializer(serializers.Serializer):
+      username = serializers.CharField(max_length=50)
+      age = serializers.IntegerField()
 
-        ```
+      def validate_age(self, value):
+          if value < 0:
+              raise serializers.ValidationError("Umur tidak boleh negatif.")
+          return value
+
+  ```
 
 #### 2. **Object-level Validation**
 
-   * **Cara**: Validasi yang berlaku untuk **beberapa field sekaligus**.
-   * **Cara implementasi**: Override method `validate()` pada serializer.
-   * **Contoh kasus**: `password` harus sama dengan `confirm_password`, atau `start_date` harus lebih kecil dari `end_date`.
-   * **Contoh kode**:
-        ```python
-        class RegisterSerializer(serializers.Serializer):
-            password = serializers.CharField(write_only=True)
-            confirm_password = serializers.CharField(write_only=True)
+- **Cara**: Validasi yang berlaku untuk **beberapa field sekaligus**.
+- **Cara implementasi**: Override method `validate()` pada serializer.
+- **Contoh kasus**: `password` harus sama dengan `confirm_password`, atau `start_date` harus lebih kecil dari `end_date`.
+- **Contoh kode**:
 
-            def validate(self, data):
-                if data['password'] != data['confirm_password']:
-                    raise serializers.ValidationError({
-                        "confirm_password": "Password tidak sama."
-                    })
-                return data
-        ```
+  ```python
+  class RegisterSerializer(serializers.Serializer):
+      password = serializers.CharField(write_only=True)
+      confirm_password = serializers.CharField(write_only=True)
+
+      def validate(self, data):
+          if data['password'] != data['confirm_password']:
+              raise serializers.ValidationError({
+                  "confirm_password": "Password tidak sama."
+              })
+          return data
+  ```
 
 #### 3. **Custom Validators**
 
-   * **Definisi**: Fungsi atau class terpisah yang dapat dipakai ulang untuk memvalidasi data tertentu.
-   * **Kelebihan**: Reusable di banyak serializer/field.
-   * **Contoh kasus**: validasi kekuatan password, validasi format NIK/KTP, validasi domain email tertentu.
-   * **Contoh kode**:
-        ```python
-        def validate_even(value):
-            if value % 2 != 0:
-                raise serializers.ValidationError("Angka harus genap.")
+- **Definisi**: Fungsi atau class terpisah yang dapat dipakai ulang untuk memvalidasi data tertentu.
+- **Kelebihan**: Reusable di banyak serializer/field.
+- **Contoh kasus**: validasi kekuatan password, validasi format NIK/KTP, validasi domain email tertentu.
+- **Contoh kode**:
 
-        class NumberSerializer(serializers.Serializer):
-            number = serializers.IntegerField(validators=[validate_even])
-        ```
+  ```python
+  def validate_even(value):
+      if value % 2 != 0:
+          raise serializers.ValidationError("Angka harus genap.")
+
+  class NumberSerializer(serializers.Serializer):
+      number = serializers.IntegerField(validators=[validate_even])
+  ```
 
 #### 4. **Model Validation**
 
-   * **Definisi**: Validasi yang didefinisikan langsung di model Django (`clean()` atau field constraints).
-   * **Kelebihan**: Lebih dekat dengan database → data tetap tervalidasi meskipun tidak lewat serializer.
-   * **Contoh kode**:
-        ```python
-        from django.db import models
-        from django.core.exceptions import ValidationError
+- **Definisi**: Validasi yang didefinisikan langsung di model Django (`clean()` atau field constraints).
+- **Kelebihan**: Lebih dekat dengan database → data tetap tervalidasi meskipun tidak lewat serializer.
+- **Contoh kode**:
 
-        class Product(models.Model):
-            name = models.CharField(max_length=100)
-            price = models.DecimalField(max_digits=10, decimal_places=2)
+  ```python
+  from django.db import models
+  from django.core.exceptions import ValidationError
 
-            def clean(self):
-                if self.price < 0:
-                    raise ValidationError("Harga tidak boleh negatif.")
-        ```
+  class Product(models.Model):
+      name = models.CharField(max_length=100)
+      price = models.DecimalField(max_digits=10, decimal_places=2)
+
+      def clean(self):
+          if self.price < 0:
+              raise ValidationError("Harga tidak boleh negatif.")
+  ```
 
 #### 5. **Unique & Constraint Validation**
 
-   * **Definisi**: Validasi otomatis berdasarkan constraint di model/serializer.
-   * **Contoh kasus**: field `email` harus unik.
-   * **Contoh kode**:
-        ```python
-        class RegisterSerializer(serializers.ModelSerializer):
-                class Meta:
-                    model = User
-                    fields = ['username', 'email', 'password']
-                    extra_kwargs = {
-                        'email': {'validators': [UniqueValidator(queryset=User.objects.all())]}
-                    }
-        ```
+- **Definisi**: Validasi otomatis berdasarkan constraint di model/serializer.
+- **Contoh kasus**: field `email` harus unik.
+- **Contoh kode**:
+  ```python
+  class RegisterSerializer(serializers.ModelSerializer):
+          class Meta:
+              model = User
+              fields = ['username', 'email', 'password']
+              extra_kwargs = {
+                  'email': {'validators': [UniqueValidator(queryset=User.objects.all())]}
+              }
+  ```
 
 ## Best Practice
 
@@ -563,17 +566,17 @@ Dalam API development, terutama menggunakan Django REST Framework, validation di
 
 Pisahkan kode sesuai tanggung jawabnya:
 
-* `models.py` → definisi struktur data.
-* `serializers.py` → validasi & konversi data.
-* `views.py` → logika API endpoint.
-* `urls.py` → routing.
+- `models.py` → definisi struktur data.
+- `serializers.py` → validasi & konversi data.
+- `views.py` → logika API endpoint.
+- `urls.py` → routing.
 
 Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** agar lebih mudah dikelola.
 
 ### 2. Gunakan ViewSet & Router
 
-* Untuk operasi standar CRUD, gunakan **ViewSet** dan **Router** agar kode lebih singkat dan konsisten.
-* Contoh:
+- Untuk operasi standar CRUD, gunakan **ViewSet** dan **Router** agar kode lebih singkat dan konsisten.
+- Contoh:
 
   ```python
   from rest_framework.viewsets import ModelViewSet
@@ -596,9 +599,9 @@ Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** aga
 
 ### 3. Konsistensi Response & Error Handling
 
-* Gunakan format response yang konsisten.
-* Saat error, selalu sertakan **pesan jelas** agar mudah dipahami klien.
-* Contoh format error:
+- Gunakan format response yang konsisten.
+- Saat error, selalu sertakan **pesan jelas** agar mudah dipahami klien.
+- Contoh format error:
 
   ```json
   {
@@ -611,9 +614,9 @@ Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** aga
 
 ### 4. Gunakan Pagination, Filtering, dan Searching
 
-* API dengan banyak data perlu **pagination** agar ringan diakses.
-* Tambahkan **filtering & search** untuk memudahkan klien.
-* Contoh:
+- API dengan banyak data perlu **pagination** agar ringan diakses.
+- Tambahkan **filtering & search** untuk memudahkan klien.
+- Contoh:
 
   ```python
   REST_FRAMEWORK = {
@@ -624,16 +627,16 @@ Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** aga
 
 ### 5. Perhatikan Keamanan
 
-* Selalu gunakan **HTTPS**.
-* Terapkan **authentication** & **permission** dengan benar (`IsAuthenticated`, `IsAdminUser`, dll.).
-* Gunakan **rate limiting** untuk mencegah abuse (misalnya dengan `django-ratelimit`).
-* Jangan pernah menyimpan password dalam bentuk plain text → selalu hash.
+- Selalu gunakan **HTTPS**.
+- Terapkan **authentication** & **permission** dengan benar (`IsAuthenticated`, `IsAdminUser`, dll.).
+- Gunakan **rate limiting** untuk mencegah abuse (misalnya dengan `django-ratelimit`).
+- Jangan pernah menyimpan password dalam bentuk plain text → selalu hash.
 
 ### 6. Testing API
 
-* Buat **unit test** untuk setiap endpoint agar bug cepat terdeteksi.
-* Gunakan `APITestCase` bawaan DRF.
-* Contoh:
+- Buat **unit test** untuk setiap endpoint agar bug cepat terdeteksi.
+- Gunakan `APITestCase` bawaan DRF.
+- Contoh:
 
   ```python
   from rest_framework.test import APITestCase
@@ -649,18 +652,18 @@ Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** aga
 
 ### 7. Dokumentasi API
 
-* Dokumentasi mempermudah developer lain (atau tim frontend) memahami API.
-* Gunakan library seperti **drf-yasg** atau **drf-spectacular** untuk membuat dokumentasi otomatis berbasis OpenAPI/Swagger.
-* Contoh: akses `/swagger/` untuk dokumentasi interaktif.
+- Dokumentasi mempermudah developer lain (atau tim frontend) memahami API.
+- Gunakan library seperti **drf-yasg** atau **drf-spectacular** untuk membuat dokumentasi otomatis berbasis OpenAPI/Swagger.
+- Contoh: akses `/swagger/` untuk dokumentasi interaktif.
 
 ### 8. Versioning API
 
-* Untuk API publik atau skala besar, gunakan **versioning** (`/api/v1/`, `/api/v2/`) agar tidak merusak klien lama saat ada update besar.
+- Untuk API publik atau skala besar, gunakan **versioning** (`/api/v1/`, `/api/v2/`) agar tidak merusak klien lama saat ada update besar.
 
 ### 9. Optimasi Query
 
-* Gunakan `select_related` atau `prefetch_related` untuk menghindari **N+1 query problem**.
-* Contoh:
+- Gunakan `select_related` atau `prefetch_related` untuk menghindari **N+1 query problem**.
+- Contoh:
 
   ```python
   books = Book.objects.select_related('author').all()
@@ -668,5 +671,9 @@ Jika aplikasi besar, gunakan pendekatan **modular dengan banyak app Django** aga
 
 ### 10. Logging & Monitoring
 
-* Tambahkan **logging** untuk error & aktivitas penting.
-* Gunakan tools monitoring (misalnya Sentry) untuk melacak error di production.
+- Tambahkan **logging** untuk error & aktivitas penting.
+- Gunakan tools monitoring (misalnya Sentry) untuk melacak error di production.
+
+---
+
+Sekian materi minggu ini! Selamat belajar, semoga bermanfaat, dan jangan lupa untuk mengerjakan checkpoint kalian, ya! ✨
