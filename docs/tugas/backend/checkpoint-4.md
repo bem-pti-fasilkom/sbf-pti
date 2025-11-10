@@ -5,4 +5,5 @@ sidebar_position: 4
 
 # Authentication, Validation, and Best Practices
 
-This is page 4.
+1. **Buatlah Fitur Authentication**<br/>
+   Buatlah endpoint untuk register, login, dan function gated.

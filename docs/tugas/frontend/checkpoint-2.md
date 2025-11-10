@@ -9,27 +9,24 @@ Jadikan halaman landing page statis Anda lebih dinamis dengan menambahkan bebera
 
 Kerjakan tugas-tugas berikut pada proyek yang sudah ada:
 
-### 1. Tombol Dark / Light Mode
+1. **Tombol Dark / Light Mode**<br/>
+   Buat sebuah tombol atau _toggle switch_ yang bisa mengubah tema warna halaman Anda.
 
-Buat sebuah tombol atau _toggle switch_ yang bisa mengubah tema warna halaman Anda.
+   - **Ketentuan:**
+     - Saat tombol diklik, tema warna halaman berubah dari terang ke gelap (atau sebaliknya).
+     - Perubahan harus terjadi secara langsung **tanpa me-reload halaman**.
+     - **Petunjuk:** Manfaatkan JavaScript untuk menambah/menghapus _class_ (misalnya `.dark-mode`) pada elemen `<body>`, lalu atur warnanya di CSS.
 
-- **Ketentuan:**
-  - Saat tombol diklik, tema warna halaman berubah dari terang ke gelap (atau sebaliknya).
-  - Perubahan harus terjadi secara langsung **tanpa me-reload halaman**.
-  - **Petunjuk:** Manfaatkan JavaScript untuk menambah/menghapus _class_ (misalnya `.dark-mode`) pada elemen `<body>`, lalu atur warnanya di CSS.
+2. **Hamburger Menu**<br/>
+   Buat menu navigasi Anda menjadi responsif di perangkat mobile.
 
-### 2. Hamburger Menu
+   - **Ketentuan:**
+     - Buat navbar menjadi ikon seperti "hamburger" (referensi bisa dicari di internet).
+     - Saat ikon hamburger diklik, tampilkan menu navigasi.
+     - Saat ikon diklik lagi, sembunyikan kembali menu navigasi.
+     - **Petunjuk:** Gunakan `addEventListener` untuk mendeteksi klik pada ikon dan mengubah _class_ pada elemen navigasi untuk mengontrol tampilannya.
 
-Buat menu navigasi Anda menjadi responsif di perangkat mobile.
-
-- **Ketentuan:**
-  - Buat navbar menjadi ikon seperti "hamburger" (referensi bisa dicari di internet).
-  - Saat ikon hamburger diklik, tampilkan menu navigasi.
-  - Saat ikon diklik lagi, sembunyikan kembali menu navigasi.
-  - **Petunjuk:** Gunakan `addEventListener` untuk mendeteksi klik pada ikon dan mengubah _class_ pada elemen navigasi untuk mengontrol tampilannya.
-
-
-## Syarat Teknis
+#### Syarat Teknis
 
 - Gunakan `addEventListener`.
 - Gunakan `getElementById` atau `querySelector` untuk menyeleksi elemen.
