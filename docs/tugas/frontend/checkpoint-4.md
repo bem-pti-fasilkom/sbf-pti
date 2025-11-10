@@ -11,7 +11,7 @@ Dari checkpoint sebelumnya, sekarang kita akan menambahkan routing, hooks, dan f
 - Gunakan hooks (useState, useEffect) untuk fetch data dari API.
 - Tampilkan data dari backend
 
-## Contoh ringkas `useFetch` (hint)
+### Contoh ringkas `useFetch` (hint)
 
 Jika kamu memutuskan untuk memakai JSON server atau API publik, berikut contoh `useFetch` yang menangani pembatalan request:
 
@@ -49,4 +49,6 @@ export function useFetch(url) {
 
 ---
 
-Selamat mengerjakan! Kalau mau aku bantu bikin starter template atau commit perubahan, beri tahu dan aku akan lanjutkan.
+Selamat mengerjakan!
+
+<!-- Kalau mau aku bantu bikin starter template atau commit perubahan, beri tahu dan aku akan lanjutkan. -->

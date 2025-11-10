@@ -287,7 +287,8 @@ export default function ThemeSwitcher() {
     <div>
       <p>Current: {theme}</p>
       <button
-        onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}>
+        onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}
+      >
         Toggle
       </button>
     </div>
@@ -327,7 +328,8 @@ export default function LoginForm() {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({ type: "submit" });
-      }}>
+      }}
+    >
       <input
         value={state.email}
         onChange={(e) =>
@@ -363,7 +365,7 @@ Contoh ada di `src/hooks/useFetch.js` (lihat di atas). Intinya:
 
 ### Axios contoh
 
-Instal:
+Install:
 
 ```bash
 npm install axios
@@ -405,7 +407,7 @@ function Posts() {
 
 React Query (sekarang TanStack Query) membantu caching, refetch, background updates.
 
-Instal:
+Install:
 
 ```bash
 npm install @tanstack/react-query
