@@ -5,4 +5,4 @@ sidebar_position: 1
 
 # Project Akhir
 
-This is page 1.
+Link Detail Project Akhir: [SBF PTI 2025](https://ristek.link/ProjectAkhirSBFPTI25)
